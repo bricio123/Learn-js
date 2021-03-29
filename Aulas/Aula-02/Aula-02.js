@@ -38,10 +38,20 @@ function f3(callback) {
   }, rand);
 }
 
-f1(function() {
-  f2(function() {
-    f3(function() {
-        console.log('Ola mundo!')
-    });
-  });
-});
+
+// f1(function() {
+//   f2(function() {
+//     f3(function() {
+//         console.log('Ola mundo!')
+//     });
+//   });
+// });
+
+//existe outra forma de fazer essas mesmas funções
+f1(f1callback)
+function f1callback(){
+  f2(f2callback);
+}
+function f3callback(){
+  f3(f2callback)
+}
